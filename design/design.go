@@ -35,5 +35,54 @@ var _ = Service("calc", func() {
 		})
 	})
 
+	Method("resta", func() {
+		Payload(func() {
+			Field(1, "a", Int, "Left operand")
+			Field(2, "b", Int, "Right operand")
+			Required("a", "b")
+		})
+
+		Result(Int)
+
+		HTTP(func() {
+			GET("/resta/{a}/{b}")
+		})
+
+		GRPC(func() {
+		})
+	})
+	Method("multiplicacion", func() {
+		Payload(func() {
+			Field(1, "a", Int, "Left operand")
+			Field(2, "b", Int, "Right operand")
+			Required("a", "b")
+		})
+
+		Result(Int)
+
+		HTTP(func() {
+			GET("/multiplicacion/{a}/{b}")
+		})
+
+		GRPC(func() {
+		})
+	})
+	Method("division", func() {
+		Payload(func() {
+			Field(1, "a", Int, "Left operand")
+			Field(2, "b", Int, "Right operand")
+			Required("a", "b")
+		})
+
+		Result(Int)
+
+		HTTP(func() {
+			GET("/division/{a}/{b}")
+		})
+
+		GRPC(func() {
+		})
+	})
+
 	Files("/openapi.json", "./gen/http/openapi.json")
 })
